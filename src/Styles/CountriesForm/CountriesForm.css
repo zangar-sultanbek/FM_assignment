@@ -1,0 +1,72 @@
+.countries_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+/*Result*/
+.countries_form_result .result_positive{
+    color: #289146;
+}
+.countries_form_result .result_negative{
+    color: rgb(255, 87, 87);
+}
+
+/*Label*/
+.countries_form > label{
+    text-align: center;
+}
+
+.countries_form > label > input{
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 7.5px 10px;
+    border-radius: 3px;
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    outline: none;
+    border: 1px solid transparent;
+    transition: background-color 150ms;
+}
+
+.countries_form > label > input:focus{
+    background-color: rgb(232, 232, 232);
+}
+
+/*Actions*/
+
+.countries_form_actions{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+}
+
+.countries_form_actions > button{
+    /*Modify grow to grow properly*/
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: 100px;
+
+    color: #fff;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 8px 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 150ms;
+}
+
+.countries_form_actions .add_btn{
+    background-color: #2382fc;
+}
+.countries_form_actions .add_btn:hover{
+    background-color: #2076e7;
+}
+.countries_form_actions .submit_btn{
+    background-color: #2ea44f;
+}
+.countries_form_actions .submit_btn:hover{
+    background-color: #289146;
+}
