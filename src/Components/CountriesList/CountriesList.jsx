@@ -6,8 +6,6 @@ import CountriesTable from './CountriesTable/CountriesTable'
 const CountriesList = ({addresses, countries}) => {
   if(!addresses.length) return <div className='countries_list_empty'>Fetch some addresses...</div>
 
-  console.log(countries)
-
   return (
     <div className='countries_list'>
       <CountriesAddresses addresses={addresses} />

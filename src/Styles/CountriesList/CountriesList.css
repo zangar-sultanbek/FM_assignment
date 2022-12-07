@@ -1,6 +1,8 @@
 .countries_list{
     border: 1px solid black;
     width: 100%;
+
+    /* display: flex; */
 }
 
 .countries_list_empty{
@@ -21,4 +23,21 @@
         color: rgb(214, 214, 214);
     }
 }
-/*AddressesTable*/
+/*CountriesTable*/
+.countries_table{
+
+}
+
+.countries_table_columns, .countries_table_row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.countries_table_column{
+    font-weight: bold;
+}
+
+.countries_table_row{
+    padding: 3px 0;
+}

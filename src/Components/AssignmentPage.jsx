@@ -1,14 +1,15 @@
 import React from 'react'
 import { useCallback } from 'react';
 import { useEffect } from 'react';
+import { useMemo } from 'react';
 import { useState } from 'react'
 import '../Styles/AssignmentPage.css'
 import CountriesForm from './CountriesForm/CountriesForm';
 import CountriesList from './CountriesList/CountriesList';
 
 const getUrlAddresses = (count) => `https://random-data-api.com/api/v2/addresses?size=${count}`
-// const getUrlCountries = (name) => `https://restcountries.com/v3.1/name/${name.replaceAll(' ', '')}`
-const getUrlCountries = (codes) => `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}`
+const getUrlCountries = (name) => `https://restcountries.com/v3.1/name/${name.replaceAll(' ', '')}`
+// const getUrlCountries = (codes) => `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}`
 
 const AssignmentPage = () => {
     const [addressCount, setAddressCount] = useState(null);
@@ -17,8 +18,9 @@ const AssignmentPage = () => {
     const handleAddressCount = useCallback(
       (count) => setAddressCount(count), []
     );
-
-    console.log(addresses)
+    const countriesMemo = useMemo(
+      () => [...countries].sort((a, b) => b?.population- a?.population), [countries]
+    );
 
     useEffect(
       () => {
@@ -33,20 +35,32 @@ const AssignmentPage = () => {
 
     useEffect(() => {
         if(!addresses.length) return;
+        
+        const fetchAllCountries = async () => {
+          const fetches = [];
+          
+          for(const address of addresses){
+            const res = await fetch(getUrlCountries(address.country));
 
-        console.log(addresses.map(address => address?.country_code))
+            if(!res.ok){
+              fetches.push({population: 0});
+              continue;
+            }
 
-        fetch(getUrlCountries(addresses.map(address => address?.country_code)))
-        .then(res => res.json())
-          .then(data => setCountries(data))
-        .catch(error => console.log(error.message))
+            const data = await res.json();
+            fetches.push(data[0]);
+          }
+
+          setCountries(fetches);
+        }
+        fetchAllCountries();
     }, [addresses])
 
-  return (
-    <div className='assignment_page'>
-        <CountriesForm addressCount={addressCount} handleAddressCount={handleAddressCount}/>
-        <CountriesList addresses={addresses} countries={countries}/>
-    </div>
+    return (
+      <div className='assignment_page'>
+          <CountriesForm addressCount={addressCount} handleAddressCount={handleAddressCount}/>
+          <CountriesList addresses={addresses} countries={countriesMemo}/>
+      </div>
   )
 }
 
