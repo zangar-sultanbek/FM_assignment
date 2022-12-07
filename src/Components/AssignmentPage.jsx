@@ -44,7 +44,6 @@ const AssignmentPage = () => {
 
   return (
     <div className='assignment_page'>
-        {/* <CountriesForm countryCodes={countryCodes} addCountryCode={addCountryCode}/> */}
         <CountriesForm addressCount={addressCount} handleAddressCount={handleAddressCount}/>
         <CountriesList addresses={addresses} countries={countries}/>
     </div>

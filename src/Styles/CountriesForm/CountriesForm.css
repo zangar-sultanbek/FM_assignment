@@ -4,6 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    max-width: 400px;
 }
 /*Result*/
 .countries_form_result .result_positive{
