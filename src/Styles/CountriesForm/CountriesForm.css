@@ -45,7 +45,6 @@
 }
 
 .countries_form_actions > button{
-    /*Modify grow to grow properly*/
     flex-shrink: 1;
     flex-grow: 0;
     flex-basis: 100px;

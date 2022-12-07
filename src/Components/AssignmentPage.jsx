@@ -9,7 +9,6 @@ import CountriesList from './CountriesList/CountriesList';
 
 const getUrlAddresses = (count) => `https://random-data-api.com/api/v2/addresses?size=${count}`
 const getUrlCountries = (name) => `https://restcountries.com/v3.1/name/${name.replaceAll(' ', '')}`
-// const getUrlCountries = (codes) => `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}`
 
 const AssignmentPage = () => {
     const [addressCount, setAddressCount] = useState(null);

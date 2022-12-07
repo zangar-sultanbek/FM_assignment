@@ -14,4 +14,4 @@ const CountriesList = ({addresses, countries}) => {
   )
 }
 
-export default CountriesList
+export default React.memo(CountriesList)
