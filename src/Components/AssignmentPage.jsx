@@ -22,6 +22,7 @@ const AssignmentPage = () => {
       () => [...countries].sort((a, b) => b?.population- a?.population), [countries]
     );
 
+    //For address fetching
     useEffect(
       () => {
         if(!addressCount) return;
@@ -32,17 +33,18 @@ const AssignmentPage = () => {
         .catch(error => console.log(error.message))
       }, [addressCount]
     );
-
+    //For country fetching, upon addresses being loaded
     useEffect(() => {
         if(!addresses.length) return;
         
         const fetchAllCountries = async () => {
           const fetches = [];
-          
+          //Promise.all() can't be used since some requests return 404(when country is not found)
           for(const address of addresses){
             const res = await fetch(getUrlCountries(address.country));
 
-            if(!res.ok){
+            //If country is not found, then push empty item
+            if(res.status === 404){
               fetches.push({population: 0});
               continue;
             }

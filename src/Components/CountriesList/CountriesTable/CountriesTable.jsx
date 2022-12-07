@@ -6,7 +6,6 @@ const columns = ['Population', 'Capital', 'Languages'];
 const CountriesTable = ({countries}) => {
     if(!countries.length) return;
 
-    console.log(countries)
     return (
         <div className='countries_table'>
             <div className="countries_table_columns">
@@ -15,7 +14,7 @@ const CountriesTable = ({countries}) => {
 
             <div className="countries_table_rows">
             {countries.map(country => 
-                <div key={country?.cca2 || v4()} className='countries_table_row'>
+                <div key={v4()} className='countries_table_row'>
                     <div>{country?.population}</div>
                     <div>{country?.capital ? country.capital.join(', ') : 'No capital data'}</div>
                     <div>{country?.languages ? Object.values(country?.languages).join(', ') : 'No language data'}</div>
