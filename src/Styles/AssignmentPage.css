@@ -1,20 +1,11 @@
 .assignment_page{
     margin: 2vw auto 0 auto;
-    /*Change the width later*/
     min-width: 400px;
+    max-width: 400px;
     
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
-}
-
-.assignment_page > form:first-child{
-    /* flex: 1; */
-    /* border: 1px solid gray; */
-}
-.assignment_page > div:last-child{
-    /* flex: 1.5; */
-    border: 1px solid black;
 }
