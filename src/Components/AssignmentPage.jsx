@@ -45,6 +45,7 @@ const AssignmentPage = () => {
             //If country is not found, then push empty item
             if(res.status === 404){
               fetches.push({population: 0});
+              console.log(`No results for: ${address.country}`)
               continue;
             }
 

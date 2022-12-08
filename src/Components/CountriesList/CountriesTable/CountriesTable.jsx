@@ -4,6 +4,7 @@ import {v4} from 'uuid';
 const columns = ['Population', 'Capital', 'Languages'];
 
 const CountriesTable = ({countries}) => {
+    //If countries are not yet fetched, we don't render the table.
     if(!countries.length) return;
 
     return (
