@@ -8,7 +8,7 @@ The following information describes the instructions for:
 2. Functionality of the application
 
 To start the application:
-1. Either clone or download a zip version of the project
+1. Either clone or download a zip version of the project: git clone https://github.com/zangar-sultanbek/FM_assignment.git OR get zip from: https://github.com/zangar-sultanbek/FM_assignment
 2. Change directory to the folder of the project: cd ./path
 3. Install dependencies: npm install
 4. Run the project: npm start
